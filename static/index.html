@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Graph Digitizer</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <h1>Graph Digitizer</h1>
+        <span class="subtitle">YOLO + OCR + OpenCV → CSV</span>
+      </div>
+      <span id="status-pill" class="pill pill-warn">connecting…</span>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Upload chart image(s)</h2>
+        <p class="hint">
+          Drop one or many chart PNGs / JPGs. Each image is processed in sequence;
+          a combined CSV with a <code>source_file</code> column is offered when the batch finishes.
+        </p>
+
+        <form id="predict-form">
+          <label class="file-input">
+            <input type="file" id="image-file" accept="image/*" multiple required />
+            <span id="image-input-label">Choose image(s)</span>
+          </label>
+          <button type="submit" class="btn-primary" id="predict-btn">Predict</button>
+          <button type="button" class="btn-secondary" id="clear-selection">Clear</button>
+          <span id="predict-msg" class="msg"></span>
+        </form>
+
+        <div id="file-chips" class="file-chips empty"></div>
+
+        <div id="results-list"></div>
+
+        <div id="batch-actions" class="hidden">
+          <button id="download-csv" class="btn-secondary">Download combined CSV</button>
+          <span id="batch-summary" class="msg"></span>
+        </div>
+
+        <div id="model-info" class="hint mono"></div>
+      </section>
+    </main>
+
+    <template id="result-card-template">
+      <article class="result-card">
+        <header class="result-card-header">
+          <span class="result-filename"></span>
+          <span class="result-status pill"></span>
+        </header>
+        <div class="result-body">
+          <img class="result-image" alt="annotated result" />
+          <div class="result-meta">
+            <dl class="result-summary"></dl>
+            <table class="result-series">
+              <thead>
+                <tr><th>#</th><th>Color</th><th>Marker</th><th>Points</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <footer>
+      <span>Bundled model: <code id="model-name">…</code></span>
+      <span>·</span>
+      <span>Source on <a href="https://github.com/tipokkitkobsin/graph-digitizer">GitHub</a></span>
+    </footer>
+
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>

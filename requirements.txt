@@ -1,0 +1,19 @@
+# Graph Digitizer — render.com deployment
+# Pinned for reproducibility. CPU-only torch (no CUDA on render).
+
+# Web stack
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-multipart==0.0.12
+
+# ML stack (CPU). PyPI ships CPU-only torch wheels for linux/amd64 (render's
+# build runners), so no special index needed.
+torch>=2.4,<3.0
+torchvision>=0.19,<1.0
+ultralytics>=8.4.50,<9.0
+opencv-python-headless>=4.10,<5.0
+easyocr>=1.7.2
+scikit-image>=0.24,<1.0
+scipy>=1.13,<2.0
+numpy>=1.26,<3.0
+pyyaml>=6.0

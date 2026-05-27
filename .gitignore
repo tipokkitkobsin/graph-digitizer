@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local runtime
+*.log
+*.tmp
+
+# Keep weights/best.pt tracked — it's the bundled model the Docker app loads.
+# (Ignore everything else under weights/ in case people drop optimizer files.)
+weights/*
+!weights/best.pt
+
+# Output of training runs / extraction (regenerable; not committed)
+runs/
+output/
+artifacts_*.tar.gz
+
+# EasyOCR cache (downloaded on first prediction)
+.easyocr/
+
+# Local convenience files
+ngrok.exe
+*.tar.gz

@@ -1,0 +1,11 @@
+path: /Users/mister0ne/Downloads/graph-digitizer-report/dataset_clean_for_slides
+train: images/train
+val: images/val
+names:
+  0: scatter_plot
+  1: line_plot
+  2: bar_plot
+  3: x_axis
+  4: y_axis
+  5: legend
+  6: line_with_scatter
